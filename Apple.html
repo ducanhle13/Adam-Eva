@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Adam-Eva</title>
+</head>
+<body>
+<script>
+    function Apple() {
+        this.weight = 10;
+        this.decrease = function () {
+            this.weight--;
+        };
+
+        this.isEmpty = function () {
+            if(this.weight > 0){
+                return true;
+            }
+        };
+
+        this.getWeight = function () {
+            return this.weight;
+        }
+    }
+
+    function Human(name, gender, weight) {
+        this.name = name;
+        this.gender = gender;
+        this.weight = weight;
+        this.setGender = gender;
+        this.isMale = function () {
+            return this.gender;
+        };
+        this.checkApple = function (apple) {
+            return apple.weight;
+        };
+        this.eat = function (apple) {
+            apple.decrease();
+            this.weight++;
+        }
+        this.getName = function () {
+            return this.name;
+        }
+        this.setName = function (name) {
+            this.name = name;
+        }
+        this.getWeight = function () {
+            return this.weight;
+        }
+        this.setWeight = function (weight) {
+            this.weight = weight;
+        }
+    }
+
+    let apple = new Apple();
+    let Adam = new Human("Adam", true, 80);
+    let Eva = new Human("Eva", false, 60);
+    for(let i = 1; apple.getWeight()>0; i++) {
+        Adam.eat(apple);
+        document.write("Khối lượng của quả táo " + apple.weight + "<br/>");
+        document.write("Cân nặng của Adam " + Adam.weight + "<br/>");
+        Eva.eat(apple);
+        document.write("Khối lượng của quả táo " + apple.weight + "<br/>");
+        document.write("Cân nặng của Eva " + Eva.weight + "<br/>");
+    }
+
+
+
+
+
+</script>
+</body>
+</html>
